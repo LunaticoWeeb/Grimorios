@@ -1,1 +1,5 @@
-*.exe
+# Ignora binários
+*.out
+*.o 
+# Ignora arquivos testes
+test*
