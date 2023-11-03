@@ -8,3 +8,4 @@
 - Separar Editor: ` Ctrl + \ `
 - Separar Editor para cima: ` Ctrl + K ` -> ` Ctrl + \ `
 - Fechar Barra Lateral: ` Ctrl + B `
+- Selecionar linha: `Ctrl + L`
