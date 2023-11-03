@@ -1,6 +1,6 @@
 # VSCode
 
-- Abrir terminal: `` Ctrl + Shift + ` ``
+- Abrir/Fechar terminal: `` Ctrl + Shift + ` ``
 - Abrir/Focar Explorer: ` Ctrl + Shift + E `
 - Abrir arquivo: `Ctrl + E`
 - Abrir/Focar Search: ` Ctrl + Shift + F `
