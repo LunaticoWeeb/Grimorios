@@ -43,7 +43,5 @@ int main(void){
 
       apagar_funcionario(funcionario1);
 
-      imprimir_funcionario(funcionario1);
-
       return 0;
 }
