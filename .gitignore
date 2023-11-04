@@ -3,3 +3,5 @@
 *.o 
 # Ignora arquivos testes
 test*
+# Ignora temporarios
+temp-*
