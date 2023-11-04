@@ -1,5 +1,10 @@
 #include "funcionario.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
 struct funcionario_t // define dados de interesse da estrutura
 {
       char nome[100];

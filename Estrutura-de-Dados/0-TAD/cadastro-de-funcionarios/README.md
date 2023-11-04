@@ -29,10 +29,6 @@ No _header_ ocorrerão as definições de constantes como `VAZIO` que vai ser ut
 
 #define VAZIO -1
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 typedef struct funcionario_t FUNCIONARIO;
 
 FUNCIONARIO *novo_funcionario(char nome[100], char cargo[100], float salario);
@@ -55,6 +51,10 @@ No _source file_  que serão implementadas as funções do TAD, ele apenas conte
 
 ```c
 #include "funcionario.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 ```
 
 Como dito, o tipo de dado abstrato é separado na sua estrutura que possui os dados de interesses:
