@@ -22,3 +22,7 @@ Da extensão _Markdown Shortcuts_.
   - Inline code: `Ctrl + I`
   - Code block: `Ctrl + C`
   - Checkbox: `Ctrl + x`
+
+## Notebook
+- Mudar célula para Código: `Y`
+- Mudar célula para Markdown: `M`
