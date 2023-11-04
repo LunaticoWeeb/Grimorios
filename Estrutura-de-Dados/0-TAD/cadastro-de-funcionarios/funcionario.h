@@ -3,10 +3,6 @@
 
 #define VAZIO -1
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 typedef struct funcionario_t FUNCIONARIO;
 
 FUNCIONARIO *novo_funcionario(char nome[100], char cargo[100], float salario);
