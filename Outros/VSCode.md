@@ -17,7 +17,7 @@
 - Itálico: `Ctrl + I`
 - Hyperlink: `Ctrl + L`
 - Imagem: `Ctrl + Shift + L`
-- `Ctrl + M`:
+- `Ctrl + M` (Extensão: _Markdown Shortcuts_):
   - Inline code: `Ctrl + I`
   - Code block: `Ctrl + C`
   - Checkbox: `Ctrl + x`
