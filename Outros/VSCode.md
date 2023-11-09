@@ -24,5 +24,6 @@ Da extensão _Markdown Shortcuts_.
   - Checkbox: `Ctrl + x`
 
 ## Notebook
+- Nova célula: `B`
 - Mudar célula para Código: `Y`
 - Mudar célula para Markdown: `M`
