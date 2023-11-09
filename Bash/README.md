@@ -69,7 +69,7 @@ $1 $2
 ```
 
 
-**Exemplos:**
+**Exemplos**
 
 ```shellscript
 echo $1 e $2
@@ -211,7 +211,7 @@ echo ${LISTA[@]} # valor1 valor2 valor3
 
 ## Tabelas
 
-### Tabela de Comandos:
+### Tabela de Comandos
 
 **COMANDO** | **EFEITO**
 -|-
@@ -229,7 +229,7 @@ echo ${LISTA[@]} # valor1 valor2 valor3
 `wc` *arquivo* | conta linhas, palavras e caracteres do *arquivo*
 `grep` *padrão* *arquivo* | mostra linhas do *arquivo* que contém *padrão*
 
-### Tabela de Símbolos:
+### Tabela de Símbolos
 
 **SIMBOLO** | **EFEITO**
 -|-
@@ -241,8 +241,10 @@ echo ${LISTA[@]} # valor1 valor2 valor3
 `$?` | código de saída
 
 
-## Tabela de Operadores:
+## Tabela de Operadores
 
 **OPERADOR** | **EFEITO**
 -|-
 
+## Fontes
+[1] Vídeo: [freeCodeCamp](https://youtu.be/tK9Oc6AEnR4)
