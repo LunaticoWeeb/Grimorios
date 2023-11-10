@@ -131,6 +131,12 @@ cargo build --release
 
 Esse executável fica em `target/release/`, ele é otimizado para ser executado, porém é mais lento para compilar. Por isso é recomendado utilizar o modo de debug durante o desenvolvimento e o modo de release para distribuir o código.
 
+Para gerar a documentação do código, utilizamos:
+
+```shellscript
+cargo doc --open
+```
+
 ## Fontes
 
 [1] [Rust Book](https://rust-book.cs.brown.edu/) 
