@@ -85,10 +85,16 @@ project/
 Se neste diretório já estiver em um repositório git, ele não deve inicializar um novo repositório. Isso pode ser sobreposto com:
 
 ```shellscript
-cargo new --vcs=git
+cargo new --vcs=git project_name
 ```
 
-No arquino Cargo.toml estará:
+Caso for criar um projeto dentro de um repositório já existente sem utilizar o comando acima, inclua no .gitignore:
+
+```shellscript
+*/target
+```
+
+No arquivo Cargo.toml estará:
 
 ```toml
 [package]
