@@ -10,10 +10,3 @@ digraph G {
 }
 ```
 ### Mudando cores
-```dot
-digraph G {
-    A [fillcolor=white, color=black];
-    B [fillcolor=black, color=white];
-    A -> B;
-}
-```
