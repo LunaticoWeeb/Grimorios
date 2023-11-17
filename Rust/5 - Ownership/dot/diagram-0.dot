@@ -1,0 +1,27 @@
+digraph{
+      bgcolor="slategrey";
+      subgraph cluster_0 {
+            fontcolor = "white";
+            color = "white";
+            style = dashed;
+            label = "STACK";
+            bgcolor = "slateblue";
+            
+            nodeA [
+                  fontcolor="white"; 
+                  shape=plaintext; 
+                  label=<
+                        <table border="0" cellborder="1" cellspacing="0" 
+                        color="slateblue">
+                              <tr>
+                              <td colspan="2"> <b>  main </b> </td>
+                              </tr>
+                              <tr>
+                                    <td color="white" bgcolor="steelblue"> n </td>
+                                    <td color="white" bgcolor="steelblue"> 5 </td>
+                              </tr>
+                        </table>
+                  >
+            ];
+      }
+}

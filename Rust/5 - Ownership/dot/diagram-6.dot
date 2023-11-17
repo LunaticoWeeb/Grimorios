@@ -1,0 +1,57 @@
+digraph{
+      bgcolor="slategrey";
+      rankdir= LR;
+
+      subgraph cluster_0 {
+            fontcolor = "white";
+            color = "white";
+            style = dashed;
+            label = "STACK";
+            bgcolor = "slateblue";
+            
+            nodeA [
+                  fontcolor="white"; 
+                  shape=plaintext; 
+                  label=<
+                        <table border="0" cellborder="1" cellspacing="0" 
+                        color="white" bgcolor="steelblue">
+                              <tr>
+                                    <td colspan="14" bgcolor="slateblue" color="slateblue"> <b>  main </b> </td>
+                              </tr>
+                              <tr>
+                                    <td color="white"> <b>  n </b> </td>
+                                    <td port="f0">  0 </td>
+                                    <td port="f3">  0 </td>
+                                    <td>  0 </td>
+                                    <td>  0 </td>
+                                    <td>  0 </td>
+                                    <td>  0 </td>
+                                    <td>  0 </td>
+                                    <td>  0 </td>
+                                    <td>  0 </td>
+                                    <td>  0 </td>
+                                    <td>  0 </td>
+                                    <td>  . . . </td>
+                                    <td>  0 </td>     
+                              </tr>
+                              <tr>
+                                    <td color="white"> <b>  m </b> </td>
+                                    <td port="f0">  0 </td>
+                                    <td port="f3">  0 </td>
+                                    <td>  0 </td>
+                                    <td>  0 </td>
+                                    <td>  0 </td>
+                                    <td>  0 </td>
+                                    <td>  0 </td>
+                                    <td>  0 </td>
+                                    <td>  0 </td>
+                                    <td>  0 </td>
+                                    <td>  0 </td>
+                                    <td>  . . . </td>
+                                    <td>  0 </td>     
+                              </tr>
+                        </table>
+                  >
+            ];
+      } 
+}
