@@ -138,8 +138,26 @@ fn main() {
 }
 ```
 
-Assim sua alocação ficaria:
+Assim sua alocação ficaria: TODO: o diagrama não está preciso
 
 ![Stack](./images/diagram-7.svg)
+
+
+Quando a _construct_ `Box` é criada ela aloca um espaço na _heap_ e retorna um _pointer_ (representado por ⏺) para esse espaço. Esse _pointer_ indica onde está o _pointee_ na _heap_. Já quando `let m = n;` é executado, o _pointer_ é copiado para a variável `m` e o _pointee_ não é copiado.
+
+#### Desalocação
+
+Em Rust a desalocação de um valor na _heap_ é feita quando o _pointer_ sai de escopo. A partir do exemplo anterior temos: 
+
+```rust
+fn main() {
+    let n = Box::new([0; 1_000_000]); 
+    let m = n;
+}
+```
+
+Quando a declaração `let m = n;` é executada, não apenas o _pointer_ é copiado como a _ownership_ do _pointee_ é transferida para a variável `m`. Isso significa quando a variável `n` sai de escopo, o _pointee_ é desalocado da memória. Isso é chamado de _move_.
+
+![Stack](./images/diagram-8.svg)
 
 

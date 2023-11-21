@@ -52,18 +52,18 @@ digraph{
                               <td colspan="2"> <b>  main </b> </td>
                               </tr>
                               <tr>
-                                    <td color="white" bgcolor="steelblue"> <b>  n </b> </td>
-                                    <td color="white" bgcolor="steelblue" port="f1" > ⏺ </td>
+                                    <td bgcolor="grey" color="white"> <b>  n </b> </td>
+                                    <td bgcolor="grey" color="white" port="f1" > ⏺ </td>
                               </tr>
                               <tr>
                                     <td color="white" bgcolor="steelblue"> <b> m </b> </td>
-                                    <td color="white" bgcolor="steelblue" port="f2"> ⏺ </td> 
+                                    <td color="white" bgcolor="steelblue" port="f2"> ⏺ </td> //
                               </tr>
                         </table>
                   >
             ];
       }
 
-      nodeB:f1 -> nodeA:f0 [arrowhead=none, color=white];
+      nodeB:f1 -> nodeA:f0 [arrowhead=none, color=lightgrey, style=dashed];
       nodeB:f2 -> nodeA:f0 [arrowhead=vee, color=white];
 }
