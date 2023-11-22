@@ -7,6 +7,7 @@
 - Abrir/Focar Search: ` Ctrl + Shift + F `
 - Abrir/Focar Grupo 1 de Editores: ` Ctrl + 1 `
 - Abrir/Focar Grupo 2 de Editores: ` Ctrl + 2 `
+- Abrir guia em nova janela: `Ctrl + K` -> `O` 
 - Separar Editor: ` Ctrl + \ `
 - Separar Editor para cima: ` Ctrl + K ` -> ` Ctrl + \ `
 - Fechar Barra Lateral: ` Ctrl + B `
