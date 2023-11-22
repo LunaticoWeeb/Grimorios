@@ -1,7 +1,7 @@
 # Ownership
 
 
-_Ownership_ é um conceito importante em Rust. É o que permite que Rust faça certas garantias de segurança sem a necessidade de um _garbage collector_.
+_Ownership_ é um conceito importante em Rust. É o que permite que Rust ser _memory safe_ sem a necessidade de um _garbage collector_.
 
 ## Comportamentos Indefinidos
 
@@ -27,9 +27,11 @@ fn main() {
 }
 ```
 
-## _Stack_ e _Heap_
+## Armazenamento em Rust
 
-Para entender como Rust encontra o comportamento indefinido em _compile-time_, precisamos entender como a memória é organizada. A memória é dividida em duas partes: _stack_ e _heap_. A _stack_ é uma pilha de memória que é organizada em ordem de alocação e desalocação. A _stack_ é usada para armazenar valores que tem um tamanho conhecido em tempo de compilação. Por exemplo, o tipo `i32` tem sempre 32 bits, então o compilador sabe que o valor `i32` sempre vai ocupar 32 bits na memória. Já o _heap_ é uma pilha de memória que é organizada de forma aleatória. O _heap_ é usado para armazenar valores que tem um tamanho desconhecido em tempo de compilação. Por exemplo, o tipo `String` pode ter qualquer tamanho, então o compilador não sabe quanto de memória deve ser alocado para armazenar um valor do tipo `String`.
+### Stack
+
+_Stack_ é a parte da memória que armazena variáveis com tamanho conhecido em tempo de compilação. Neste esepaço a memória é alocada e desalocada seguindo uma ordem de _last-in-first-out_ (LIFO). Ou seja, a última variável a ser alocada é a primeira a ser desalocada. 
 
 Um exemplo da forma que o Rust armazena na _stack_ é:
 
@@ -90,7 +92,7 @@ fn add_one(x: i32) -> i32 {
 
 ![Stack](./images/diagram-2.svg)
 
-Assim o valor retornado pela função `add_one` é copiado para a variável `m` e é armazenado no _frame_ da função `main` e o  _frame_ da função `add_one` é desempilhado e a variável `x` é desalocada da memória.
+Assim o valor retornado pela função `add_one` é copiado para a variável `m` e é armazenado no _frame_ da função `main` e o  _frame_ da função `add_one` é desempilhado e a variável `x` é desalocada da memória. Já quando a função `main` termina de executar, o _frame_ da função `main` é desempilhado desalocando primeiro a variável `m` e depois a variável `n`.
 
 No caso de expressões que leem uma variável e escrevem em outra, como por exemplo:
 
@@ -114,7 +116,9 @@ E, por isso, quando ele some da memória, o valor de `n` não é alterado:
 
 ![Stack](./images/diagram-5.svg)
 
-### _Boxes_
+### _Heap_ e _Box_
+
+A _heap_ é a parte da memória que armazena variáveis com tamanho desconhecido em tempo de compilação. Neste espaço a memória é alocada e desalocada de acordo com o tamanho da variável, independente da posição na memória. Isso permite que caso seja necessário, a memória possa ser realocada para um espaço maior.
 
 Observando o seguinte exemplo:
 
@@ -164,6 +168,88 @@ Quando a declaração `let m = n;` é executada, não apenas o _pointer_ é copi
 
 #### Desalocação
 
+A partir desse exemplo, vamos observar como a memória vai ser desalocada:
+
+```rust
+
+fn main() {
+    let n = Box::new(5);
+    let m = n;
+    funcao();
+}
+
+fn funcao() {
+    let x = Box::new(10);
+}
+
 ```
-TODO: Reescrever módulo baseado baseado no arquivo Conversation.md
+
+Primeiro entramos no _frame_ da função `main`, onde a variável `n` é alocada na _stack_ e o _pointee_ de `n` é alocado na _heap_:
+
+```rust
+fn main() {
+    let n = Box::new(5);
+    .
+    .
+    .
+}
 ```
+
+![Stack](./images/diagram-8.svg)
+
+Depois a variável `m` é alocada na _stack_ e o _pointer_ de `n` é copiado para `m`:
+
+```rust
+fn main() {
+    let n = Box::new(5);
+    let m = n;
+    .
+    .
+    .
+}
+```
+
+![Stack](./images/diagram-9.svg)
+
+E como a _ownership_ de `n` foi transferida para `m`, o _pointee_ de `n` não é mais acessível:
+
+![Stack](./images/diagram-10.svg)
+
+Depois a função `funcao` é chamada, criando um novo _frame_ na _stack_:
+
+```rust
+fn main() {
+    let n = Box::new(5);
+    let m = n;
+    funcao();
+}
+
+fn funcao() {
+    let x = Box::new(10);
+}
+
+```
+
+![Stack](./images/diagram-11.svg)
+
+E a variável `x` é alocada na _stack_, no _frame_ da função `funcao` e o _pointee_ de `x` é alocado na _heap_:
+
+![Stack](./images/diagram-12.svg)
+
+Depois a função `funcao` termina de executar e o _frame_ da função `funcao` é desempilhado:
+
+![Stack](./images/diagram-13.svg)
+
+E o _pointee_ de `x` é desalocado da _heap_:
+
+![Stack](./images/diagram-14.svg)
+
+Depois a função `main` termina de executar e o _frame_ da função `main` é desempilhado, assim primeiro a variável `m` é desalocada da _stack_:
+
+![Stack](./images/diagram-15.svg)
+
+E em seguida o _pointee_ de `m` é desalocado da _heap_:
+
+![Stack](./images/diagram-16.svg)
+
+E por fim a variável `n` é desalocada da _stack_.
