@@ -56,12 +56,12 @@
 <text text-anchor="start" x="27" y="-69.8" font-family="Times,serif" font-size="14.00" fill="white"> </text>
 <text text-anchor="start" x="32" y="-69.8" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="white"> &#160;main </text>
 <text text-anchor="start" x="86" y="-69.8" font-family="Times,serif" font-size="14.00" fill="white"> </text>
-<polygon fill="steelblue" stroke="none" points="24,-41 24,-62 66,-62 66,-41 24,-41"/>
+<polygon fill="grey" stroke="none" points="24,-41 24,-62 66,-62 66,-41 24,-41"/>
 <polygon fill="none" stroke="white" points="24,-41 24,-62 66,-62 66,-41 24,-41"/>
 <text text-anchor="start" x="27.5" y="-48.8" font-family="Times,serif" font-size="14.00" fill="white"> </text>
 <text text-anchor="start" x="32.5" y="-48.8" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="white"> &#160;n </text>
 <text text-anchor="start" x="57.5" y="-48.8" font-family="Times,serif" font-size="14.00" fill="white"> </text>
-<polygon fill="steelblue" stroke="none" points="66,-41 66,-62 94,-62 94,-41 66,-41"/>
+<polygon fill="grey" stroke="none" points="66,-41 66,-62 94,-62 94,-41 66,-41"/>
 <polygon fill="none" stroke="white" points="66,-41 66,-62 94,-62 94,-41 66,-41"/>
 <text text-anchor="start" x="69.5" y="-47.8" font-family="Times,serif" font-size="14.00" fill="white"> ⏺ </text>
 <polygon fill="steelblue" stroke="none" points="24,-20 24,-41 66,-41 66,-20 24,-20"/>
@@ -76,7 +76,7 @@
 <!-- nodeB&#45;&gt;nodeA -->
 <g id="edge1" class="edge">
 <title>nodeB:f1&#45;&gt;nodeA:f0</title>
-<path fill="none" stroke="white" d="M95,-51C117.88,-51 122.62,-41 145.5,-41"/>
+<path fill="none" stroke="lightgrey" stroke-dasharray="5,2" d="M95,-51C117.88,-51 122.62,-41 145.5,-41"/>
 </g>
 <!-- nodeB&#45;&gt;nodeA -->
 <g id="edge2" class="edge">

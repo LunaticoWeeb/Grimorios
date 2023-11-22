@@ -125,11 +125,12 @@ fn main() {
 }
 ```
 
+Neste exemplo estamos tentando **transferir** o conteúdo de `n` para `m`.
 Sua alocação na _stack_ seria:
 
 ![Stack](./images/diagram-6.svg)
 
-Isso obviamente seria muito custoso. Por isso, uma forma do Rust acessar o dado sem ter que copiar, é com um _pointer_ que aponta para o valor (chamado de _pointee_) alocado na _heap_. A é uma região separada da memória onde o dado pode ficar indefinidamente. Os dados da _heap_ não são ligados a um _frame_ especifíco da _stack_. No Rust o _construct_ `Box` é usado para alocar um valor na _heap_. Por exemplo:
+Isso obviamente seria muito custoso. Por isso, uma forma do Rust transferir o valor de uma variável para outra sem a necessidade de copiar uma grande quantidade de dados é utilizando um _pointer_ que aponta para o valor (chamado de _pointee_) alocado na _heap_. A é uma região separada da memória onde o dado pode ficar indefinidamente. Os dados da _heap_ não são ligados a um _frame_ especifíco da _stack_. No Rust o _construct_ `Box` é usado para alocar um valor na _heap_. Por exemplo:
 
 ```rust
 fn main() {
@@ -138,16 +139,16 @@ fn main() {
 }
 ```
 
-Assim sua alocação ficaria: TODO: o diagrama não está preciso
+Assim sua alocação ficaria:
 
 ![Stack](./images/diagram-7.svg)
 
 
 Quando a _construct_ `Box` é criada ela aloca um espaço na _heap_ e retorna um _pointer_ (representado por ⏺) para esse espaço. Esse _pointer_ indica onde está o _pointee_ na _heap_. Já quando `let m = n;` é executado, o _pointer_ é copiado para a variável `m` e o _pointee_ não é copiado.
 
-#### Desalocação
+#### _Move_
 
-Em Rust a desalocação de um valor na _heap_ é feita quando o _pointer_ sai de escopo. A partir do exemplo anterior temos: 
+No exemplo anterior ocorreu uma operação chamada _move_. _Move_ é quando a _ownership_ de um valor é transferida de uma variável para outra. Quando uma variável é movida para outra, a variável original não pode mais ser usada, assim:
 
 ```rust
 fn main() {
@@ -156,8 +157,13 @@ fn main() {
 }
 ```
 
-Quando a declaração `let m = n;` é executada, não apenas o _pointer_ é copiado como a _ownership_ do _pointee_ é transferida para a variável `m`. Isso significa quando a variável `n` sai de escopo, o _pointee_ é desalocado da memória. Isso é chamado de _move_.
+Quando a declaração `let m = n;` é executada, não apenas o _pointer_ é copiado como a _ownership_ do _pointee_ é transferida para a variável `m`, por isso após a transferência dos dados de um _pointer_ pro outro, o compilador não permite acessar novamente o _pointee_ de `n`.
 
-![Stack](./images/diagram-8.svg)
+![Stack](./images/diagram-7.svg)
 
 
+#### Desalocação
+
+```
+TODO: Reescrever módulo baseado baseado no arquivo Conversation.md
+```
