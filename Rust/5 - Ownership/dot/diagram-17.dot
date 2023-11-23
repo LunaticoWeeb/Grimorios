@@ -1,0 +1,46 @@
+digraph{
+      bgcolor="slategrey";
+      rankdir= LR;
+
+      subgraph cluster_0 {
+            fontcolor = "white";
+            color = "white";
+            style = dashed;
+            label = "HEAP";
+            bgcolor = "slateblue";
+            
+            nodeA [
+                  fontcolor="white"; 
+                  shape=plaintext; 
+                  label=<
+                        <table border="0" cellborder="1" cellspacing="0" 
+                        color="slateblue">
+                              <tr>
+                              <td colspan="2"> <b> </b> </td>
+                              </tr>
+                        </table>
+                  >
+            ];
+      } 
+
+      subgraph cluster_1 {
+            fontcolor = "white";
+            color = "white";
+            style = dashed;
+            label = "STACK";
+            bgcolor = "slateblue";
+            
+            nodeB [
+                  fontcolor="white"; 
+                  shape=plaintext; 
+                  label=<
+                        <table border="0" cellborder="1" cellspacing="0" 
+                        color="slateblue">
+                              <tr>
+                              <td colspan="2"> <b> </b> </td>
+                              </tr>
+                        </table>
+                  >
+            ];
+      }
+}

@@ -168,6 +168,12 @@ Quando a declaração `let m = n;` é executada, não apenas o _pointer_ é copi
 
 #### Desalocação
 
+A desalocação em Rust segue o seguinte princípio: 
+
+> **Princípio da Desalocação de Box**
+> 
+> Se uma varível possui a _ownership_ de uma _Box_, quando o _frame_ da variável for desalocado, a _Box_ também será desalocada.
+
 A partir desse exemplo, vamos observar como a memória vai ser desalocada:
 
 ```rust
@@ -248,8 +254,10 @@ Depois a função `main` termina de executar e o _frame_ da função `main` é d
 
 ![Stack](./images/diagram-15.svg)
 
-E em seguida o _pointee_ de `m` é desalocado da _heap_:
+Depois, como a _ownership_ de `n` foi transferida para `m`, o _pointee_ de `n` é desalocado da _heap_:
 
 ![Stack](./images/diagram-16.svg)
 
-E por fim a variável `n` é desalocada da _stack_.
+E, por fim, a variável `n` é desalocada da _stack_:
+
+![Stack](./images/diagram-17.svg)
