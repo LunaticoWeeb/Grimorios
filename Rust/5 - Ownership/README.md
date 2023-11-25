@@ -261,3 +261,147 @@ Depois, como a _ownership_ de `n` foi transferida para `m`, o _pointee_ de `n` �
 E, por fim, a variável `n` é desalocada da _stack_:
 
 ![Stack](./images/diagram-17.svg)
+
+#### Coleções
+
+Em Rust _Boxes_ são utilizadas em estruturas de dados como `Vec<T>`, `String` e `HashMap<K, V>`. A partir do seguinte exemplo:
+
+```Rust
+fn main() {
+    let first = String::from("Ferris");
+    let full = add_suffix(first);
+}
+
+fn add_suffix(mut name: String) -> String {
+    name.push_str(" Jr.");
+    name
+}
+```
+
+Primeiro a variável `first` é alocada na _stack_ e o _pointee_ de `first` é alocado na _heap_:
+
+```Rust
+fn main() {
+    let first = String::from("Ferris");
+    .
+    .
+    .
+}
+```
+
+![Stack](./images/diagram-18.svg)
+
+Depois a função `add_suffix` é chamada, criando um novo _frame_ na _stack_, onde a variável `name` é alocada na _stack_ e o _pointer_ de `first` é movido para `name`:
+
+```Rust
+fn main() {
+    let first = String::from("Ferris");
+    ... = add_suffix(first);
+}
+
+fn add_suffix(mut name: String) -> String {
+    .
+    .
+    .
+}
+```
+
+![Stack](./images/diagram-19.svg)
+
+Depois a funçãp `name.push_str(" Jr.");` é executada, alterando o _pointee_ de `name`:
+
+```Rust
+fn main() {
+    let first = String::from("Ferris");
+    ... = add_suffix(first);
+}
+
+fn add_suffix(mut name: String) -> String {
+    name.push_str(" Jr.");
+    .
+    .
+    .
+}
+```
+
+Para isso, um novo _pointee_ é alocado na _heap_ com o espaço necessário para armazenar o valor de `name` e o valor `" Jr."`:
+
+![Stack](./images/diagram-20.svg)
+
+Depois disso neste novo espaço é copiado o valor de `name` e o valor `" Jr."`:
+
+![Stack](./images/diagram-21.svg)
+
+E o _pointer_ de `name` é movido para o novo _pointee_:
+
+![Stack](./images/diagram-22.svg)
+
+E o _pointee_ `Ferris` é desalocado da _heap_:
+
+![Stack](./images/diagram-23.svg)
+
+Depois a função `add_suffix` termina de executar e o _frame_ da função `add_suffix` é desempilhado, assim a variável `name` é desalocada da _stack_ e o _pointee_ é retornado para a variável `full` no _frame_ da função `main`:
+
+```Rust
+fn main() {
+    let first = String::from("Ferris");
+    let full = add_suffix(first);
+}
+
+fn add_suffix(mut name: String) -> String {
+    name.push_str(" Jr.");
+    name
+}
+```
+
+![Stack](./images/diagram-24.svg)
+
+#### _Clone_
+
+Se movemos um _pointee_ de um _pointer_ para outro, não é possivel acessar novamento o _pointee_ através do _pointer_ original.
+
+```rust
+let x = Box::new(5);
+let y = x;
+println!("{}", *x); // Erro
+```
+
+Como isso pode acusar um comportamento indefindo, o Rust segue o seguinte princípio:
+
+> **Princípio do Dado Movido na _Heap_**
+>
+> Se a _ownership_ de um _pointee_ é transferida de um _pointer_ para outro, o _pointee_ original não pode mais ser acessado.
+
+Então para não perder a informação original antes de transferir a _ownership_ de um _pointee_ para outro, o Rust permite utilizar o método `clone` para criar uma cópia do _pointee_ antes de transferir a _ownership_:
+
+```rust
+let x = Box::new(5);
+let y = x.clone();
+println!("{}", *x); // 5
+```
+
+Para o exemplo da desalocação, também poderia se utilizar o método `clone`:
+
+```rust
+fn main() {
+    let first = String::from("Ferris");
+    let first_clone = first.clone();
+    let full = add_suffix(first_clone);
+    println!("{}", full);
+    println!("{}", first); // Agora é possível acessar o valor original
+}
+
+fn add_suffix(mut name: String) -> String {
+    name.push_str(" Jr.");
+    name
+}
+
+### Gerenciamento de Memória na _Heap_
+
+Em resumo podemos dizer que o Rust segue os seguintes princípios para gerenciar a memória na _heap_:
+
+- Toda informação na _heap_ possui exatamente uma variável que é a _owner_ dela.
+- Quando a _owner_ sai de escopo, o valor é desalocado.
+- _Ownership_ pode ser transferida através de _moves_, o que ocorre com atribuições e passagem de parâmetros para funções.
+- Uma vez movida, a informação não pode ser acessada através do _owner_ anterior.
+
