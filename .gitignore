@@ -1,8 +1,11 @@
 # Ignora binários
-*.out
+*.exe
 *.o 
 # Ignora arquivos testes
-test*
+test.*
+teste.*
 # Ignora temporarios
 temp-*
 temp.*
+# Ignora pasta de Rust com binários
+*/target
