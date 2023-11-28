@@ -1,0 +1,49 @@
+digraph{
+      bgcolor="black";
+      nodeA [
+            fontcolor="white"; 
+            shape=plaintext; 
+            fontname="Arial";
+            label=<
+                  <table border="0" cellborder="1" cellspacing="0" 
+                  color="black">
+                        <tr>
+                              <td>  i  </td>
+                              <td>    </td>
+                              <td>    </td>
+                              <td>    </td>
+                              <td>    </td>
+                              <td>    </td>
+                              <td>    </td>
+                              <td>    </td>
+                              <td>    </td>
+                              <td>    </td>
+                              <td>    </td>
+                              <td>    </td>
+                              <td>  f  </td>
+                              <td>    </td>
+                              <td>    </td>
+                              <td> n-1 </td>
+                        </tr>
+                        <tr>
+                              <td bgcolor="red" color="white">  E  </td>
+                              <td bgcolor="red" color="white">  L  </td>
+                              <td bgcolor="red" color="white">  P  </td>
+                              <td bgcolor="red" color="white">  S  </td>
+                              <td bgcolor="red" color="white">  Y  </td>
+                              <td bgcolor="red" color="white">  K  </td>
+                              <td bgcolor="red" color="white">  O  </td>
+                              <td bgcolor="red" color="white">  N  </td>
+                              <td bgcolor="red" color="white">  G  </td>
+                              <td bgcolor="red" color="white">  R  </td>
+                              <td bgcolor="red" color="white">  O  </td>
+                              <td bgcolor="red" color="white">  O  </td>
+                              <td bgcolor="grey" color="white">     </td>
+                              <td bgcolor="grey" color="white">     </td>
+                              <td bgcolor="grey" color="white">     </td>
+                              <td bgcolor="grey" color="white">    </td>
+                        </tr>
+                  </table>
+            >
+      ];
+}
