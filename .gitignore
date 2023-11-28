@@ -5,3 +5,4 @@
 test*
 # Ignora temporarios
 temp-*
+temp.*

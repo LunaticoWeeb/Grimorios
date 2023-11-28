@@ -1,0 +1,78 @@
+digraph{
+      bgcolor="slategrey";
+      rankdir= LR;
+
+      subgraph cluster_0 {
+            fontcolor = "white";
+            color = "white";
+            style = dashed;
+            label = "HEAP";
+            bgcolor = "slateblue";
+            
+            nodeA [
+                  fontcolor="white"; 
+                  shape=plaintext; 
+                  label=<
+                        <table border="0" cellborder="1" cellspacing="0" 
+                        color="white" bgcolor="steelblue">
+                              <tr>
+                                    <td port="f0">  5 </td>
+                              </tr>
+                              <tr>
+                                    <td port="f4">  10 </td>
+                              </tr>
+                        </table>
+                  >
+            ];
+      } 
+
+      subgraph cluster_1 {
+            fontcolor = "white";
+            color = "white";
+            style = dashed;
+            label = "STACK";
+            bgcolor = "slateblue";
+            
+            nodeB [
+                  fontcolor="white"; 
+                  shape=plaintext; 
+                  label=<
+                        <table border="0" cellborder="1" cellspacing="0" 
+                        color="slateblue">
+                              <tr>
+                              <td colspan="2"> <b>  main </b> </td>
+                              </tr>
+                              <tr>
+                                    <td bgcolor="grey" color="white"> <b>  n </b> </td>
+                                    <td bgcolor="grey" color="white" port="f1" > ⏺ </td>
+                              </tr>
+                              <tr>
+                                    <td color="white" bgcolor="steelblue"> <b> m </b> </td>
+                                    <td color="white" bgcolor="steelblue" port="f2"> ⏺ </td> 
+                              </tr>
+                        </table>
+                  >
+            ];
+
+            nodeC [
+                  fontcolor="white"; 
+                  shape=plaintext; 
+                  label=<
+                        <table border="0" cellborder="1" cellspacing="0" 
+                        color="slateblue">
+                              <tr>
+                              <td colspan="2"> <b>  funcao </b> </td>
+                              </tr>
+                              <tr>
+                                    <td color="white" bgcolor="steelblue"> <b> x </b> </td>
+                                    <td color="white" bgcolor="steelblue" port="f3"> ⏺</td> 
+                              </tr>
+                        </table>
+                  >
+            ];
+      }
+
+      nodeB:f1 -> nodeA:f0 [arrowhead=none, color=lightgrey, style=dashed];
+      nodeB:f2 -> nodeA:f0 [arrowhead=vee, color=white];
+      nodeC:f3 -> nodeA:f4 [arrowhead=vee, color=white];
+}
