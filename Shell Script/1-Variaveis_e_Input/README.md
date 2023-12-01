@@ -1,4 +1,6 @@
-# 1. Variáveis
+# Variáveis e _Input_
+
+## Variáveis
 
 Definindo variáveis:
 
@@ -12,7 +14,9 @@ Acessando a variável:
 $VAR
 ```
 
-## 3. Entrada
+> [Exemplo](./Programas/variaveis.sh)
+
+## _Input_
 
 Para receber um *input* do usuário:
 
@@ -20,9 +24,9 @@ Para receber um *input* do usuário:
 read ENTRADA
 ```
 
-Assim o *input* escrito em seguida pelo usuário deve ser armazenado na variável `ENTRADA`.
+Assim o *input* escrito em seguida pelo usuário deve ser armazenado na variável `ENTRADA` ([Exemplo](./Programas/entrada.sh)).
 
-## 4. Argumentos Posicionais
+## Argumentos Posicionais
 
 Para receber argumentos para o programa em sua execução, podemos utilizar argumentos posicionais, por exemplo, se temos um script que recebe dois argumentos do usuário, podemos já defini-los antes de ser interpretado:
 
@@ -48,3 +52,5 @@ VAR2=$2
 
 echo $1 e $2
 ```
+
+> [Exemplo](./Programas/arg-posicionais.sh)
