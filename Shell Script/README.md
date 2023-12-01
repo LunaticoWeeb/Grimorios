@@ -4,7 +4,7 @@ Anotações sobre o uso de shell script.
 
 ## Executando um script
 
-Normalmente os shellscripts iniciam com o _shebang_ `#!/bin/bash`, isso sinaliza pro sistema que para utilizar o interpretador `bash` que geralmente está localizado no diratório `bin/`. Porém como isso não se aplica a todo sistema que utilize Bash, uma forma mais portável do código é com `#!/usr/bin/env bash`, isso sinaliza pro sistema criar um ambiente para executar o código e utilizar o interpretador Bash. Dessa forma temos:
+Normalmente os shellscripts iniciam com o _shebang_ `#!/bin/bash`, isso sinaliza pro sistema que para utilizar o interpretador `bash` que geralmente está localizado no diratório `bin/`. Porém como isso não se aplica a todo sistema que utilize Bash, uma forma mais portável do código é com `#!/usr/bin/env bash`, isso sinaliza pro sistema criar um ambiente para executar o código e utilizar o interpretador Bash. Dessa forma temos ([programa](./Programas/hello-world.sh)):
 
 ```bash
 #!/usr/bin/env bash
