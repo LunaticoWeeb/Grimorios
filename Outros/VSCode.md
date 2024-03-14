@@ -28,3 +28,4 @@ Da extensão _Markdown Shortcuts_.
 - Nova célula: `B`
 - Mudar célula para Código: `Y`
 - Mudar célula para Markdown: `M`
+- Colocando expressão matemática com um tab: `&nbsp;&nbsp;&nbsp;&nbsp; $expressão matemática aqui$`
