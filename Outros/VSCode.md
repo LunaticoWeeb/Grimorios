@@ -2,6 +2,7 @@
 
 ## Atalhos Gerais
 - Abrir/Fechar terminal: `` Ctrl + Shift + ` ``
+- Abrir Paleta de Comando: `Ctrl + Shift + P `
 - Abrir/Focar Explorer: ` Ctrl + Shift + E `
 - Abrir arquivo: `Ctrl + E`
 - Abrir/Focar Search: ` Ctrl + Shift + F `
